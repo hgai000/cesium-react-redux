@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import store from './store';
 import Fullscreen from 'cesium/Source/Core/Fullscreen';
 
@@ -6,9 +6,9 @@ import { Button } from 'semantic-ui-react';
 import 'semantic-ui-css/components/button.min.css';
 import 'semantic-ui-css/components/icon.min.css';
 
-const FullscreenButton = () => {
+const FullscreenButton = (props) => {
     const handleClick = () => {
-        Fullscreen.requestFullscreen();
+        Fullscreen.requestFullscreen(props.cesiumContainer);
         store.dispatch({
             type: 'CLICK'
         })
