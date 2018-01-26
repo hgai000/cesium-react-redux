@@ -11,8 +11,7 @@ import Animation from './Animation';
 const containerStyle = {
     display: 'grid',
     width: '100vw',
-    height: '100vh',
-    overflow: 'hidden'
+    height: '100vh'
 };
 
 class App extends Component {
@@ -30,6 +29,8 @@ class App extends Component {
             navigationHelpButton : false,
             scene3DOnly : true,
         });
+
+        this.forceUpdate();
     }
 
     render() {
@@ -53,13 +54,12 @@ class App extends Component {
                         maxWidth: '100%',
                         position: 'absolute',
                         pointerEvents: 'none',
-                        zIndex: 10,
-                        overflow: 'hidden'
+                        zIndex: 10
                     }}
                 >
                     <Animation />
                     <Timeline />
-                    <FullscreenButton />
+                    <FullscreenButton cesiumContainer={this.cesiumContainer}/>
                 </Grid>
             </div>
         );
