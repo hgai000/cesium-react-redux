@@ -7,6 +7,7 @@ import { Grid } from 'semantic-ui-react';
 import FullscreenButton from './FullscreenButton';
 import Timeline from './Timeline';
 import Animation from './Animation';
+import Transmitter from './Transmitter';
 
 const containerStyle = {
     display: 'grid',
@@ -57,6 +58,7 @@ class App extends Component {
                         zIndex: 10
                     }}
                 >
+                    <Transmitter/>
                     <Animation />
                     <Timeline />
                     <FullscreenButton cesiumContainer={this.cesiumContainer}/>
