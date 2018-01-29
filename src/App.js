@@ -46,8 +46,8 @@ class App extends Component {
                 <Grid
                     style={{
                         display: 'grid',
-                        gridTemplateRows: '1fr 1fr 1fr minmax(175px, 175px)',
-                        gridTemplateColumns: 'minmax(175px, 175px) 1fr 1fr minmax(min-content,min-content)',
+                        gridTemplateRows: '1fr 1fr 1fr 1fr',
+                        gridTemplateColumns: '1fr 1fr 1fr 1fr',
                         top: 0,
                         minHeight: '100%',
                         minWidth: '100%',
@@ -58,10 +58,27 @@ class App extends Component {
                         zIndex: 10
                     }}
                 >
-                    <Transmitter/>
-                    <Animation />
-                    <Timeline />
-                    <FullscreenButton cesiumContainer={this.cesiumContainer}/>
+                    <Grid style={{
+                        display: 'grid',
+                        gridRow: '2 / 4',
+                        gridColumn: 1,
+                        gridTemplateRows: '1fr 1fr 1fr 1fr'
+                    }}>
+                        <Transmitter/>
+                    </Grid>
+                    <Grid style={{
+                        display: 'grid',
+                        gridRow: 4,
+                        gridColumn: '1 / 5',
+                        gridTemplateColumns: 'minmax(175px, 175px) 1fr minmax(min-content,min-content)',
+                        gridTemplateAreas: `
+                            'animation timeline fullscreen-button'
+                        `
+                    }}>
+                        <Animation />
+                        <Timeline />
+                        <FullscreenButton cesiumContainer={this.cesiumContainer}/>
+                    </Grid>
                 </Grid>
             </div>
         );
