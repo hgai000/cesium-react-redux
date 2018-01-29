@@ -11,10 +11,9 @@ const Animation = () => (
         style={{
             opacity: 0.8,
             pointerEvents:'auto',
-            gridRow: '4 / 5',
-            gridColumn: '1 / 2',
+            gridArea: 'animation',
             marginBottom: '-50%',
-            marginTop: '35%',
+            marginTop: '52%',
             overflow: 'hidden'
         }}
     >

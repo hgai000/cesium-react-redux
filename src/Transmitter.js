@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Popup, Input, Segment } from 'semantic-ui-react';
+import { Button, Popup, Input, Segment, Ref } from 'semantic-ui-react';
 import store from './store';
 
 import 'semantic-ui-css/components/button.min.css';
@@ -29,6 +29,12 @@ class Transmitter extends Component {
         }
     };
 
+    handleRef = node => {
+        node.children[0].style.background = 'black';
+        node.children[0].style.color = 'chartreuse';
+        node.children[0].style.width = '100%';
+    };
+
     render() {
         const messages = store.getState().messages;
 
@@ -37,15 +43,12 @@ class Transmitter extends Component {
                 trigger={
                     <Button
                         inverted
-                        fluid
-                        icon='flask'
-                        size='huge'
-                        content='TRANSMIT MESSAGES'
+                        icon='rss'
+                        content='COMMNET'
                         style={{
                             pointerEvents: 'auto',
                             opacity: 0.8,
-                            gridRow: 3,
-                            gridColumn: 4,
+                            gridRow: 4,
                             color: 'chartreuse'
                         }}
                     />
@@ -65,16 +68,19 @@ class Transmitter extends Component {
                                 )
                             })}
                         </Segment>
-                        <Input
-                            type='text'
-                            inverted
-                            placeholder='ENTER MESSAGE'
-                            style={{
-                                opacity: 0.8,
-                                color: 'chartreuse'
-                            }}
-                            onKeyPress={this.handleSubmit}
-                        />
+                        <Ref innerRef={this.handleRef}>
+                            <Input
+                                type='text'
+                                inverted
+                                placeholder='ENTER MESSAGE'
+                                style={{
+                                    opacity: 0.8,
+                                    color: 'chartreuse',
+                                    width: '100%'
+                                }}
+                                onKeyPress={this.handleSubmit}
+                            />
+                        </Ref>
                     </Segment>
                 }
                 on='click'

@@ -13,8 +13,7 @@ const Timeline = () => (
         style={{
             opacity: 0.8,
             pointerEvents: 'auto',
-            gridRow: 4,
-            gridColumn: '2 / 4',
+            gridArea: 'timeline',
             marginBottom: 0,
             alignSelf: 'end'
         }}
